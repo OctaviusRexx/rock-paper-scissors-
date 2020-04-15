@@ -2,33 +2,60 @@
 <html>
     <head></head>
     <body>
-
         <script>
+            // Create a function that Generates a Random Computer Selection
             function computerPlay(){
                switch(Math.floor(Math.random() * 3) + 1){
                     case 1:{
                         let computerSelection = "Rock";
                         //console.log(computerSelection)
                             break;
-                    }
-                    case 2:{
+
+                    } case 2:{
                         let computerSelection = "Paper";
                         //console.log(computerSelection)
                             break;
-                    }
-                    case 3:{
+
+                    } case 3:{
                         let computerSelection = "Scissors"
                         //console.log(computerSelection)
                             break;
-                    } 
-                    default:
+
+                    } default:
                         let computerSelection = "Error something went wrong"
                }               
             } 
+            // Create a Function that can evaluate all possible combinations
             function playRound(playerSelection,computerSelection){
+                
+                if (playerSelection == computerSelection) {
+                    alert("Draw!!! Try again!");
 
+                } else if (playerSelection == "Paper" && computerSelection == "Scissors") {
+                    alert("You Lose! Scissors beats Paper!");
 
-            }
+                } else if (playerSelection == "Rock" && computerSelection == "Paper") {
+                    alert("You Lose! Paper beats Rock!");
+
+                } else if (playerSelection == "Scissors" && computerSelection == "Rock") {
+                    alert("You Lose! Rock beats Scissors!");
+
+                } else if (playerSelection = "Scissors" && computerSelection == "Paper") {
+                    alert("You Win! Scissors beats Paper!");
+
+                } else if (playerSelection = "Paper" && computerSelection == "Rock") {
+                    alert("You Win! Paper beats Rock!");
+
+                } else if (playerSelection = "Rock" && computerSelection == "Scissors") {
+                    alert("You Win! Rock beats Scissors!");
+                    
+                } else {
+                    alert("Something went wrong");
+                }
+
+                }
+            
+            const computerSelection = computerPlay();
         </script>
 
     </body>
