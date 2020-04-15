@@ -1,0 +1,21 @@
+.background{
+    background-color:rgb(53, 52, 50);
+    background-image: url(https://cdn-images.threadless.com/threadless-shop/products/6181/1272x920design_01.jpg?w=1272&h=920);
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+.Title {
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    color:black;
+    text-shadow: .3px .8px rgb(197, 192, 202);
+    text-align: center;  
+}
+
+.Text {
+    font-size: medium;
+    font-weight: 800;
+    color: #000;
+    text-align: center;
+}
