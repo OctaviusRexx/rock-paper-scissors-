@@ -33,52 +33,51 @@
                         let computerSelection = "Error something went wrong"
                }               
             } 
-            // Allows the user to make a selection
-            function userChoice() {
+            
+            function playRound(fixPlayerSelection,computerSelection) {
+            
+            //Computer makes random decision input
+                const computerSelection = computerPlay();
+
+            // Allows the user to make a selection input
                 let playerSelection = prompt("Choose a weapon", "Rock, Paper, or Scissors");
+
             // Corrects any input a user may put in to meet requirements
                 let fixPlayerSelection = playerSelection.toLowerCase();
+                
                 let options = ["rock","paper","scissors"]    
                     if (options.includes(fixPlayerSelection)){
-                        console.log(fixPlayerSelection)
+
+            // Can evaluate all possible combinations based off of both inputs
+                        if (fixPlayerSelection == computerSelection) {
+                            alert("Draw!!! Try again!");
+
+                        } else if (fixPlayerSelection == "paper" && computerSelection == "scissors") {
+                            alert("You Lose! Scissors beats Paper!");
+
+                        } else if (fixPlayerSelection == "rock" && computerSelection == "paper") {
+                            alert("You Lose! Paper beats Rock!");
+
+                        } else if (fixPlayerSelection == "scissors" && computerSelection == "rock") {
+                            alert("You Lose! Rock beats Scissors!");
+
+                        } else if (fixPlayerSelection = "scissors" && computerSelection == "paper") {
+                            alert("You Win! Scissors beats Paper!");
+
+                         } else if (fixPlayerSelection = "paper" && computerSelection == "rock") {
+                            alert("You Win! Paper beats Rock!");
+
+                        } else if (fixPlayerSelection = "rock" && computerSelection == "scissors") {
+                            alert("You Win! Rock beats Scissors!");
+                    
+                        } else {
+                            alert("Something went wrong");
+                }               
                     } else {
                         alert("That was not an option dude. C'mon actually pick one")
                         userChoice()
                     }
-            }
-            // Can evaluate all possible combinations
-            function playRound(fixPlayerSelection,computerSelection){
-                
-                if (fixPlayerSelection == computerSelection) {
-                    alert("Draw!!! Try again!");
-
-                } else if (playerSelection == "paper" && computerSelection == "scissors") {
-                    alert("You Lose! Scissors beats Paper!");
-
-                } else if (playerSelection == "rock" && computerSelection == "paper") {
-                    alert("You Lose! Paper beats Rock!");
-
-                } else if (playerSelection == "scissors" && computerSelection == "rock") {
-                    alert("You Lose! Rock beats Scissors!");
-
-                } else if (playerSelection = "scissors" && computerSelection == "paper") {
-                    alert("You Win! Scissors beats Paper!");
-
-                } else if (playerSelection = "paper" && computerSelection == "rock") {
-                    alert("You Win! Paper beats Rock!");
-
-                } else if (playerSelection = "rock" && computerSelection == "scissors") {
-                    alert("You Win! Rock beats Scissors!");
-                    
-                } else {
-                    alert("Something went wrong");
-                }
-
-                }
-            
-            const computerSelection = computerPlay();
+            }                  
         </script>
-
     </body>
-
 </html>
