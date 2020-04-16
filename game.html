@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="utf-8">
         <title>Ro Sham Bo Baby - NVG</title>
         <link rel = "stylesheet" href="style.css">
     </head>
@@ -10,21 +11,21 @@
                 <p class="Text">Let's go best 3 out of 5.</p>  
                 <p class="Text">Open the JS console to give it a go.</p>                   
         <script>
-            // Create a function that Generates a Random Computer Selection
+            // Generates a Random Computer Selection
             function computerPlay(){
                switch(Math.floor(Math.random() * 3) + 1){
                     case 1:{
-                        let computerSelection = "Rock";
+                        let computerSelection = "rock";
                         //console.log(computerSelection)
                             break;
 
                     } case 2:{
-                        let computerSelection = "Paper";
+                        let computerSelection = "paper";
                         //console.log(computerSelection)
                             break;
 
                     } case 3:{
-                        let computerSelection = "Scissors"
+                        let computerSelection = "scissors"
                         //console.log(computerSelection)
                             break;
 
@@ -32,28 +33,41 @@
                         let computerSelection = "Error something went wrong"
                }               
             } 
-            // Create a Function that can evaluate all possible combinations
-            function playRound(playerSelection,computerSelection){
+            // Allows the user to make a selection
+            function userChoice() {
+                let playerSelection = prompt("Choose a weapon", "Rock, Paper, or Scissors");
+            // Corrects any input a user may put in to meet requirements
+                let fixPlayerSelection = playerSelection.toLowerCase();
+                let options = ["rock","paper","scissors"]    
+                    if (options.includes(fixPlayerSelection)){
+                        console.log(fixPlayerSelection)
+                    } else {
+                        alert("That was not an option dude. C'mon actually pick one")
+                        userChoice()
+                    }
+            }
+            // Can evaluate all possible combinations
+            function playRound(fixPlayerSelection,computerSelection){
                 
-                if (playerSelection == computerSelection) {
+                if (fixPlayerSelection == computerSelection) {
                     alert("Draw!!! Try again!");
 
-                } else if (playerSelection == "Paper" && computerSelection == "Scissors") {
+                } else if (playerSelection == "paper" && computerSelection == "scissors") {
                     alert("You Lose! Scissors beats Paper!");
 
-                } else if (playerSelection == "Rock" && computerSelection == "Paper") {
+                } else if (playerSelection == "rock" && computerSelection == "paper") {
                     alert("You Lose! Paper beats Rock!");
 
-                } else if (playerSelection == "Scissors" && computerSelection == "Rock") {
+                } else if (playerSelection == "scissors" && computerSelection == "rock") {
                     alert("You Lose! Rock beats Scissors!");
 
-                } else if (playerSelection = "Scissors" && computerSelection == "Paper") {
+                } else if (playerSelection = "scissors" && computerSelection == "paper") {
                     alert("You Win! Scissors beats Paper!");
 
-                } else if (playerSelection = "Paper" && computerSelection == "Rock") {
+                } else if (playerSelection = "paper" && computerSelection == "rock") {
                     alert("You Win! Paper beats Rock!");
 
-                } else if (playerSelection = "Rock" && computerSelection == "Scissors") {
+                } else if (playerSelection = "rock" && computerSelection == "scissors") {
                     alert("You Win! Rock beats Scissors!");
                     
                 } else {
