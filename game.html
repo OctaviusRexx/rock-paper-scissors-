@@ -9,75 +9,7 @@
         <h1 class="Title">Try to beat me at Rock, Paper, Scissors</h1>
             <p class="Text">I bet you can't. But you can try.</p>
                 <p class="Text">Let's go best 3 out of 5.</p>  
-                <p class="Text">Open the JS console to give it a go.</p>                   
-        <script>
-            // Generates a Random Computer Selection
-            function computerPlay(){
-               switch(Math.floor(Math.random() * 3) + 1){
-                    case 1:{
-                        let computerSelection = "rock";
-                        //console.log(computerSelection)
-                            break;
-
-                    } case 2:{
-                        let computerSelection = "paper";
-                        //console.log(computerSelection)
-                            break;
-
-                    } case 3:{
-                        let computerSelection = "scissors"
-                        //console.log(computerSelection)
-                            break;
-
-                    } default:
-                        let computerSelection = "Error something went wrong"
-               }               
-            } 
-            
-            function playRound(fixPlayerSelection,computerSelection) {
-            
-            //Computer makes random decision input
-                const computerSelection = computerPlay();
-
-            // Allows the user to make a selection input
-                let playerSelection = prompt("Choose a weapon", "Rock, Paper, or Scissors");
-
-            // Corrects any input a user may put in to meet requirements
-                let fixPlayerSelection = playerSelection.toLowerCase();
-                
-                let options = ["rock","paper","scissors"]    
-                    if (options.includes(fixPlayerSelection)){
-
-            // Can evaluate all possible combinations based off of both inputs
-                        if (fixPlayerSelection == computerSelection) {
-                            alert("Draw!!! Try again!");
-
-                        } else if (fixPlayerSelection == "paper" && computerSelection == "scissors") {
-                            alert("You Lose! Scissors beats Paper!");
-
-                        } else if (fixPlayerSelection == "rock" && computerSelection == "paper") {
-                            alert("You Lose! Paper beats Rock!");
-
-                        } else if (fixPlayerSelection == "scissors" && computerSelection == "rock") {
-                            alert("You Lose! Rock beats Scissors!");
-
-                        } else if (fixPlayerSelection = "scissors" && computerSelection == "paper") {
-                            alert("You Win! Scissors beats Paper!");
-
-                         } else if (fixPlayerSelection = "paper" && computerSelection == "rock") {
-                            alert("You Win! Paper beats Rock!");
-
-                        } else if (fixPlayerSelection = "rock" && computerSelection == "scissors") {
-                            alert("You Win! Rock beats Scissors!");
-                    
-                        } else {
-                            alert("Something went wrong");
-                }               
-                    } else {
-                        alert("That was not an option dude. C'mon actually pick one")
-                        userChoice()
-                    }
-            }                  
-        </script>
+                <p class="Text">Open the JS console and type <strong style="font-size: 20px;">go()</strong> to play.</p>                   
+        <script src="myscripts.js"></script>
     </body>
 </html>
