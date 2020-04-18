@@ -3,35 +3,33 @@ function computerPlay(){
     switch(Math.floor(Math.random() * 3) + 1){
          case 1:{
              let computerSelection = "rock";
-                break;
+             return computerSelection
 
          } case 2:{
              let computerSelection = "paper";
-                 break;
+             return computerSelection
 
          } case 3:{
              let computerSelection = "scissors"
-                 break;
+             return computerSelection
 
          } default:
-             let computerSelection = "Error something went wrong"
-    }               
- } 
+             alert("Error something went wrong")
+    }            
+    } 
  // Allows the user to make a selection input
- function userPlay(){
+function userPlay(){
      
-     let playerSelection = prompt("Choose a weapon", "Rock, Paper, or Scissors").toLowerCase();
+     var playerSelection = prompt("Choose a weapon", "Rock, Paper, or Scissors").toLowerCase();
 
-      let options = ["rock","paper","scissors"]    
          if (playerSelection == "rock" || playerSelection == "paper" || playerSelection == "scissors"){
-             return playerSelection
+             return playerSelection;
          } else {
-             alert("That was not an option dude. C'mon actually pick one");
-             userPlay();
+             alert("That was not an option dude. C'mon actually pick one"); 
+             userPlay()  
          }
- }
- 
- function playRound(playerSelection,computerSelection) {
+}   
+/*function playRound(playerSelection,computerSelection) {
      
  // Can evaluate all possible combinations based off of both inputs
              switch (true) {
@@ -68,10 +66,11 @@ function computerPlay(){
                  alert("Something went wrong");
              }               
     }
-}
+}*/
+
  //Computer makes random decision input
  const playerSelection = userPlay();
  const computerSelection = computerPlay(); 
- console.log(computerSelection)
  console.log(playerSelection)
- console.log(playRound(playerSelection,computerSelection))
+ console.log(computerSelection)
+ //console.log(playRound(playerSelection,computerSelection))
