@@ -30,48 +30,70 @@ function userPlay(){
         return playerSelection
          
 }   
-/*function playRound(playerSelection,computerSelection) {
-     
+function playRound(playerSelection,computerSelection) {
+       
+    let result;
+
  // Can evaluate all possible combinations based off of both inputs
              switch (true) {
-
+               //Losing Cases
+                case (playerSelection == "paper" && computerSelection == "scissors"): 
+                case (playerSelection == "rock" && computerSelection == "paper"): 
+                case (playerSelection == "scissors" && computerSelection == "rock"): 
+                    alert(`You have lost my guy. ${computerSelection} beats ${playerSelection} :(.`);
+                    result = "loss";
+                    return result
+                //Winning Cases
+                case (playerSelection == "scissors" && computerSelection == "paper"):
+                case (playerSelection == "paper" && computerSelection == "rock"): 
+                case (playerSelection == "rock" && computerSelection == "scissors"): 
+                    alert(`Winna Baby! ${playerSelection} beats ${computerSelection} ;)!!`);
+                    result = "win";
+                    return result
+                //Draw
                 case (playerSelection == computerSelection): {
-                 alert("Draw!!! Try again!");
-                 break;
-
-             }  case (playerSelection == "paper" && computerSelection == "scissors"): {
-                 alert("You Lose! Scissors beats Paper!");
-                 break;
-
-             }  case (playerSelection == "rock" && computerSelection == "paper"): {
-                 alert("You Lose! Paper beats Rock!");
-                 break;
-
-             }  case (playerSelection == "scissors" && computerSelection == "rock"): {
-                 alert("You Lose! Rock beats Scissors!");
-                 break;
-
-             }  case (playerSelection == "scissors" && computerSelection == "paper"): {
-                 alert("You Win! Scissors beats Paper!");
-                 break;
-
-              } case (playerSelection == "paper" && computerSelection == "rock"): {
-                 alert("You Win! Paper beats Rock!");
-                 break;
-
-             }  case (playerSelection == "rock" && computerSelection == "scissors"): {
-                 alert("You Win! Rock beats Scissors!");
-                 break;
-         
+                    alert("Draw!!! Go again!");
+                    result = "draw"
+                    return result
+   
              }  default: {
                  alert("Something went wrong");
-             }               
+            }
+            
     }
-}*/
+}
 
- //Computer makes random decision input
- const playerSelection = userPlay();
- const computerSelection = computerPlay(); 
- console.log(playerSelection)
- console.log(computerSelection)
+ //Used for Testing a Single Round
+ //const playerSelection = userPlay();
+ //const computerSelection = computerPlay(); 
+ //console.log(playerSelection)
+ //console.log(computerSelection)
  //console.log(playRound(playerSelection,computerSelection))
+
+function game(result){
+
+    let playerScore = 0;
+    let computerScore = 0;
+   
+    while (playerScore < 3 && computerScore < 3){
+        let playerSelection = userPlay();
+        let computerSelection = computerPlay(); 
+        let result = playRound(playerSelection,computerSelection);
+            if (result == "win"){
+                playerScore = playerScore + 1;
+
+            }   else if (result == "loss"){
+                    computerScore = computerScore + 1;   
+            }            
+        //Selection Check
+        //console.log(`You chose ${playerSelection}`)
+        //console.log(`Computer chose ${computerSelection}`)
+        alert(`Score is Computer : ${computerScore} Player : ${playerScore}.`);
+    }
+    if (playerScore > computerScore){
+        alert(`Congratulations! You Win ${playerScore} to ${computerScore}. You Get Nothing.`)
+    } else {
+        alert(`You have Lost ${computerScore} to ${playerScore}. Is was it is right? Type game() and hit Enter to play again`)
+    }
+}
+
