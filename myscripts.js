@@ -22,12 +22,13 @@ function userPlay(){
      
      var playerSelection = prompt("Choose a weapon", "Rock, Paper, or Scissors").toLowerCase();
 
-         if (playerSelection == "rock" || playerSelection == "paper" || playerSelection == "scissors"){
-             return playerSelection;
-         } else {
-             alert("That was not an option dude. C'mon actually pick one"); 
-             userPlay()  
+         while (playerSelection !== "rock" && playerSelection !== "paper" && playerSelection !== "scissors"){
+            alert("That was not an option dude. C'mon actually pick one"); 
+            var playerSelection = prompt("Choose a weapon", "Rock, Paper, or Scissors").toLowerCase();
          }
+        
+        return playerSelection
+         
 }   
 /*function playRound(playerSelection,computerSelection) {
      
