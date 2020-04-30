@@ -20,11 +20,11 @@ function computerPlay(){
  // Allows the user to make a selection input
 function userPlay(){
      
-     var playerSelection = prompt("Choose a weapon", "Rock, Paper, or Scissors").toLowerCase();
+     var playerSelection = prompt("Type Rock, Paper, or Scissors",'').toLowerCase();
 
          while (playerSelection !== "rock" && playerSelection !== "paper" && playerSelection !== "scissors"){
             alert("That was not an option dude. C'mon actually pick one"); 
-            var playerSelection = prompt("Choose a weapon", "Rock, Paper, or Scissors").toLowerCase();
+            var playerSelection = prompt("Type Rock, Paper, or Scissors", '').toLowerCase();
          }
         
         return playerSelection
@@ -93,7 +93,7 @@ function game(result){
     if (playerScore > computerScore){
         alert(`Congratulations! You Win ${playerScore} to ${computerScore}. You Get Nothing.`)
     } else {
-        alert(`You have Lost ${computerScore} to ${playerScore}. Is was it is right? Type game() and hit Enter to play again`)
+        alert(`You have Lost ${computerScore} to ${playerScore}. Is was it is right? Click to try again`)
     }
 }
 
