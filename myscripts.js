@@ -18,15 +18,28 @@ function computerPlay(){
     }            
     } 
  // Allows the user to make a selection input
-function userPlay(){
-     
-     var playerSelection = prompt("Type Rock, Paper, or Scissors",'').toLowerCase();
 
-         while (playerSelection !== "rock" && playerSelection !== "paper" && playerSelection !== "scissors"){
-            alert("That was not an option dude. C'mon actually pick one"); 
-            var playerSelection = prompt("Type Rock, Paper, or Scissors", '').toLowerCase();
-         }
-        
+function userPlay(){
+
+ const rockInput = document.querySelector('#rock');
+ const paperInput = document.querySelector('#paper');
+ const scissorsInput = document.querySelector('#scissors');
+
+    rockInput.addEventListener('click', () => {
+        playerSelection = "rock";
+        //console.log(playerSelection);
+    });
+
+    paperInput.addEventListener('click', () => {
+        playerSelection = "paper";
+        //console.log(playerSelection);
+    });
+
+    scissorsInput.addEventListener('click', () => {
+        playerSelection = "scissors";
+        //console.log(playerSelection);
+    });
+     
         return playerSelection
          
 }   
@@ -63,14 +76,7 @@ function playRound(playerSelection,computerSelection) {
     }
 }
 
- //Used for Testing a Single Round
- //const playerSelection = userPlay();
- //const computerSelection = computerPlay(); 
- //console.log(playerSelection)
- //console.log(computerSelection)
- //console.log(playRound(playerSelection,computerSelection))
-
-function game(result){
+function game(){
 
     let playerScore = 0;
     let computerScore = 0;
@@ -91,9 +97,47 @@ function game(result){
         alert(`Score is Computer : ${computerScore} Player : ${playerScore}.`);
     }
     if (playerScore > computerScore){
-        alert(`Congratulations! You Win ${playerScore} to ${computerScore}. You Get Nothing.`)
+        alert(`Congratulations! You Win ${playerScore} to ${computerScore}. You Get Nothing. Press "New Game" to play again`)
+        selection.removeChild(rock);
+        selection.removeChild(paper);
+        selection.removeChild(scissors);
+        selection.appendChild(startGame);
     } else {
-        alert(`You have Lost ${computerScore} to ${playerScore}. Is was it is right? Click to try again`)
+        alert(`You have Lost ${computerScore} to ${playerScore}. Is was it is right? Press "New Game" to play again`)
+        selection.removeChild(rock);
+        selection.removeChild(paper);
+        selection.removeChild(scissors);
+        selection.appendChild(startGame);
     }
 }
+const selection = document.querySelector('#selection');
+const startGame = document.querySelector('#start-game');
+ 
+startGame.addEventListener('click',() => {
 
+    //Begin Game and add options to choose
+
+    selection.removeChild(startGame);
+
+    let rock = document.createElement('input');
+    rock.setAttribute('id', 'rock');
+    rock.classList.add('Button');
+    rock.type = "button";
+    rock.value = "Rock";
+    selection.appendChild(rock);
+
+    let paper = document.createElement('input')
+    paper.setAttribute('id', 'paper');
+    paper.classList.add('Button')
+    paper.type = "button";
+    paper.value = "Paper";
+    selection.appendChild(paper);
+
+    let scissors = document.createElement('input')
+    scissors.setAttribute('id', 'scissors');
+    scissors.classList.add('Button')
+    scissors.type = "button";
+    scissors.value = "Scissors";
+    selection.appendChild(scissors);
+    
+});
