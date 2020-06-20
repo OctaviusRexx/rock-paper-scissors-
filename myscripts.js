@@ -21,6 +21,8 @@ function computerPlay(){
 
 function userPlay(){
 
+    var playerSelection = 0;
+
  const rockInput = document.querySelector('#rock');
  const paperInput = document.querySelector('#paper');
  const scissorsInput = document.querySelector('#scissors');
@@ -81,15 +83,20 @@ function game(){
     let playerScore = 0;
     let computerScore = 0;
    
-    while (playerScore < 3 && computerScore < 3){
+    while (playerScore < 2 && computerScore < 2){
         let playerSelection = userPlay();
+            while (playerSelection == 0 ){
+                userPlay();
+            }
         let computerSelection = computerPlay(); 
         let result = playRound(playerSelection,computerSelection);
             if (result == "win"){
                 playerScore = playerScore + 1;
+                playerSelection = 0;
 
             }   else if (result == "loss"){
                     computerScore = computerScore + 1;   
+                    playerSelection = 0;
             }            
         //Selection Check
         //console.log(`You chose ${playerSelection}`)
@@ -139,5 +146,7 @@ startGame.addEventListener('click',() => {
     scissors.type = "button";
     scissors.value = "Scissors";
     selection.appendChild(scissors);
-    
+
+    game()
+
 });
